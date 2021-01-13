@@ -1,11 +1,11 @@
 <html>
 <head>
-	<title>Add Data</title>
+	<title>Cadastro de Pessoa</title>
 </head>
 
 <body>
 <?php
-//including the database connection file
+//Incluindo arquivo de conexão do BD
 include_once("config.php");
 
 if(isset($_POST['Submit'])) {	
@@ -13,32 +13,32 @@ if(isset($_POST['Submit'])) {
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
 		
-	// checking empty fields
+	//Verificando campos vazios
 	if(empty($name) || empty($age) || empty($email)) {
 				
 		if(empty($name)) {
-			echo "<font color='red'>Name field is empty.</font><br/>";
+			echo "<font color='red'>O campo nome está vazio</font><br/>";
 		}
 		
 		if(empty($age)) {
-			echo "<font color='red'>Age field is empty.</font><br/>";
+			echo "<font color='red'>O campo idade está vazio</font><br/>";
 		}
 		
 		if(empty($email)) {
-			echo "<font color='red'>Email field is empty.</font><br/>";
+			echo "<font color='red'>O campo e-mail está vazio</font><br/>";
 		}
 		
-		//link to the previous page
-		echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+		//Link para voltar a página
+		echo "<br/><a href='javascript:self.history.back();'>Voltar</a>";
 	} else { 
-		// if all the fields are filled (not empty) 
+		// Se todos os campos forem preenchidos (sem campos vazios) 
 			
-		//insert data to database	
+		//Insere dados no BD	
 		$result = mysqli_query($mysqli, "INSERT INTO users(name,age,email) VALUES('$name','$age','$email')");
 		
-		//display success message
-		echo "<font color='green'>Data added successfully.";
-		echo "<br/><a href='index.php'>View Result</a>";
+		//Mostra mensagem de sucesso
+		echo "<font color='green'>Cadastro realizado";
+		echo "<br/><a href='index.php'>Ver cadastros</a>";
 	}
 }
 ?>

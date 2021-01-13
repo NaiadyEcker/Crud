@@ -15,15 +15,15 @@ if(isset($_POST['update']))
 	if(empty($name) || empty($age) || empty($email)) {	
 			
 		if(empty($name)) {
-			echo "<font color='red'>Name field is empty.</font><br/>";
+			echo "<font color='red'>O campo nome está vazio</font><br/>";
 		}
 		
 		if(empty($age)) {
-			echo "<font color='red'>Age field is empty.</font><br/>";
+			echo "<font color='red'>O campo idade está vazio</font><br/>";
 		}
 		
 		if(empty($email)) {
-			echo "<font color='red'>Email field is empty.</font><br/>";
+			echo "<font color='red'>O campo e-mail está vazio</font><br/>";
 		}		
 	} else {	
 		//updating the table
@@ -50,30 +50,30 @@ while($res = mysqli_fetch_array($result))
 ?>
 <html>
 <head>	
-	<title>Edit Data</title>
+	<title>Editar</title>
 </head>
 
 <body>
-	<a href="index.php">Home</a>
+	<a href="index.php">Página inicial</a>
 	<br/><br/>
 	
 	<form name="form1" method="post" action="edit.php">
 		<table border="0">
 			<tr> 
-				<td>Name</td>
+				<td>Nome</td>
 				<td><input type="text" name="name" value="<?php echo $name;?>"></td>
 			</tr>
 			<tr> 
-				<td>Age</td>
+				<td>Idade</td>
 				<td><input type="text" name="age" value="<?php echo $age;?>"></td>
 			</tr>
 			<tr> 
-				<td>Email</td>
+				<td>E-mail</td>
 				<td><input type="text" name="email" value="<?php echo $email;?>"></td>
 			</tr>
 			<tr>
 				<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
-				<td><input type="submit" name="update" value="Update"></td>
+				<td><input type="submit" name="update" value="Atualizar"></td>
 			</tr>
 		</table>
 	</form>

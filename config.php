@@ -1,10 +1,10 @@
 <?php
 /*
-// mysql_connect("database-host", "username", "password")
+// mysql_connect("host-BD", "usuario", "senha")
 $conn = mysql_connect("localhost","root","root") 
-			or die("cannot connected");
+			or die("Sem conexão");
 
-// mysql_select_db("database-name", "connection-link-identifier")
+// mysql_select_db("database-name", "Link de conexão identificada")
 @mysql_select_db("test",$conn);
 */
 
@@ -15,8 +15,8 @@ $conn = mysql_connect("localhost","root","root")
 
 $databaseHost = 'localhost';
 $databaseName = 'test';
-$databaseUsername = 'root';
-$databasePassword = 'password';
+$databaseUsername = 'default';
+$databasePassword = 'default';
 
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
 ?>
