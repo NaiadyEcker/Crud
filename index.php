@@ -1,4 +1,7 @@
 <?php
+
+//Alterando linha para testar SSH 
+
 //including the database connection file
 include_once("config.php");
 
