@@ -9,3 +9,8 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   PRIMARY KEY  (`id`)
 );
+
+ALTER TABLE users ADD telefone varchar(11);
+
+ALTER TABLE `test`.`users` 
+CHANGE COLUMN `telefone` `telefone` VARCHAR(15) NULL DEFAULT NULL ;

@@ -12,9 +12,10 @@ if(isset($_POST['Submit'])) {
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
+	$telefone = mysqli_real_escape_string($mysqli, $_POST['telefone']);
 		
 	//Verificando campos vazios
-	if(empty($name) || empty($age) || empty($email)) {
+	if(empty($name) || empty($age) || empty($email) || empty($telefone)) {
 				
 		if(empty($name)) {
 			echo "<font color='red'>O campo nome está vazio</font><br/>";
@@ -22,6 +23,10 @@ if(isset($_POST['Submit'])) {
 		
 		if(empty($age)) {
 			echo "<font color='red'>O campo idade está vazio</font><br/>";
+		}
+
+		if(empty($telefone)) {
+			echo "<font color='red'>O campo telefone está vazio</font><br/>";
 		}
 		
 		if(empty($email)) {
@@ -34,7 +39,7 @@ if(isset($_POST['Submit'])) {
 		// Se todos os campos forem preenchidos (sem campos vazios) 
 			
 		//Insere dados no BD	
-		$result = mysqli_query($mysqli, "INSERT INTO users(name,age,email) VALUES('$name','$age','$email')");
+		$result = mysqli_query($mysqli, "INSERT INTO users(name,age,email,telefone) VALUES('$name','$age','$email','$telefone')");
 		
 		//Mostra mensagem de sucesso
 		echo "<font color='green'>Cadastro realizado";
