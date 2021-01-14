@@ -2,6 +2,9 @@
 // including the database connection file
 include_once("config.php");
 
+var_dump($_POST);
+die;
+
 if(isset($_POST['update'])) {	
 
 	$id = mysqli_real_escape_string($mysqli, $_POST['id']);
@@ -76,7 +79,7 @@ while($res = mysqli_fetch_array($result))
 			</tr>
 			<tr>
 				<td>Telefone</td>
-				<td><input type="text" telefone="telefone" value="<?php echo $telefone;?>"></td>
+				<td><input type="text" name="telefone" value="<?php echo $telefone;?>"></td>
 			</tr>
 			<tr> 
 				<td>E-mail</td>
