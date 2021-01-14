@@ -7,35 +7,20 @@
 <?php
 //Incluindo arquivo de conexão do BD
 include_once("config.php");
+include_once("functions.php");
+
+// var_dump(!is_int($_POST['age']));
+// die;
 
 if(isset($_POST['Submit'])) {	
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
 	$telefone = mysqli_real_escape_string($mysqli, $_POST['telefone']);
-		
-	//Verificando campos vazios
-	if(empty($name) || empty($age) || empty($email) || empty($telefone)) {
-				
-		if(empty($name)) {
-			echo "<font color='red'>O campo nome está vazio</font><br/>";
-		}
-		
-		if(empty($age)) {
-			echo "<font color='red'>O campo idade está vazio</font><br/>";
-		}
 
-		if(empty($telefone)) {
-			echo "<font color='red'>O campo telefone está vazio</font><br/>";
-		}
-		
-		if(empty($email)) {
-			echo "<font color='red'>O campo e-mail está vazio</font><br/>";
-		}
-		
-		//Link para voltar a página
-		echo "<br/><a href='javascript:self.history.back();'>Voltar</a>";
-	} else { 
+	$isValid = validarCampos($name,$age,$telefone,$email);
+
+	if($isValid == true) {
 		// Se todos os campos forem preenchidos (sem campos vazios) 
 			
 		//Insere dados no BD	
@@ -44,7 +29,12 @@ if(isset($_POST['Submit'])) {
 		//Mostra mensagem de sucesso
 		echo "<font color='green'>Cadastro realizado";
 		echo "<br/><a href='index.php'>Ver cadastros</a>";
+	} else {
+
+		//Link para voltar a página
+		echo "<br/><a href='javascript:self.history.back();'>Voltar</a>";
 	}
+			
 }
 ?>
 </body>
