@@ -3,22 +3,20 @@
 include_once("config.php");
 include_once("functions.php");
 
-var_dump($_POST);
-die;
-
 if(isset($_POST['update'])) {	
-
-	$id = mysqli_real_escape_string($mysqli, $_POST['id']);
-	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
-	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
-	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
-	$telefone = mysqli_real_escape_string($mysqli, $_POST['telefone']);
 	
-	$isValid = validarCampos($name,$age,$telefone,$email);
+	$isValid = validarCampos($_POST['name'],$_POST['age'],$_POST['telefone'],$_POST['email']);
 
 	if($isValid == true) {
 		// Se todos os campos forem preenchidos (sem campos vazios) 
 		//updating the table
+
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+		$age = $_POST['age'];
+		$telefone = $_POST['telefone'];
+		$email = $_POST['email'];
+
 		$result = mysqli_query($mysqli, "UPDATE users SET name='$name', age='$age', email='$email', telefone='$telefone' WHERE id=$id");
 		
 		//redirectig to the display page. In our case, it is index.php

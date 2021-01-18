@@ -7,10 +7,11 @@
             $isValid = false;
         }
 
-        if(empty($IDADE) || !is_int($IDADE)) {
+        if(empty($IDADE) || !is_numeric($IDADE)) {
             echo "<font color='red'>O campo idade está vazio ou não é válido</font><br/>";
             $isValid = false;
         }
+
     
         if(empty($telefone)) {
             echo "<font color='red'>O campo telefone está vazio</font><br/>";
@@ -21,5 +22,6 @@
             echo "<font color='red'>O campo e-mail está vazio ou não é válido</font><br/>";
             $isValid = false;
         }
+        
         return $isValid;
     }
