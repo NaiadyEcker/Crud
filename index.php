@@ -13,13 +13,15 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); // usin
 </head>
 
 <body>
-<a href="add.html">Cadastrar Pessoa</a><br/><br/>
+<a href="add.html">Cadastrar Pessoa</a><br/>
+<a href="access-group.php">Cadastrar Grupo</a><br/><br/>
 
 	<table width='80%' border=0>
 
 	<tr bgcolor='#CCCCCC'>
 		<td>ID</td>
 		<td>Nome</td>
+		<td>Grupo Acesso</td>
 		<td>Idade</td>
 		<td>Telefone</td>
 		<td>E-mail</td>
@@ -31,9 +33,10 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); // usin
 		echo "<tr>";
 		echo "<td>".$res['id']."</td>";
 		echo "<td>".$res['name']."</td>";
+		echo "<td>Grupo1";
 		echo "<td>".$res['age']."</td>";
 		echo "<td>".$res['telefone']."</td>";
-		echo "<td>".$res['email']."</td>";	
+		echo "<td>".$res['email']."</td>";
 		echo "<td><a href=\"edit.php?id=$res[id]\">Editar</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Você tem certeza que deseja excluir?')\">Deletar</a></td>";		
 	}
 	?>
