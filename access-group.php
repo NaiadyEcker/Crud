@@ -3,17 +3,20 @@ include_once("config.php");
 
     if($_POST){
         if(isset($_POST['saveGroup'])) {
+            $nomeGrupo = $_POST['nameGroup'];
+            $permCadastra = $_POST['cadastraPessoa'];
+            $permEdita = $_POST['editaPessoa'];
+            $permExclui = $_POST['excluiPessoa'];
+
             if(empty($nomeGrupo)) {
                 echo "<font color='red'>O campo Nome Grupo não pode ser vazio</font><br/>";
+            } else {
+                $SQL="INSERT INTO grupo(name,cadastra,edita,exclui) VALUES('$nomeGrupo','$permCadastra','$permEdita','$permExclui')";
+                $result = mysqli_query($mysqli, $SQL);
+                echo "<font color='green'>Grupo cadastrado com sucesso</font><br/>";
+                echo "<br/><a href='javascript:self.history.back();'>Voltar</a>";
+                die;
             }
-            die("Não consegui prosseguir daqui");
-                $nomeGrupo = $_POST['nameGroup'];
-                $permCadastra = $_POST['cadastraPessoa'];
-                $permEdita = $_POST['editaPessoa'];
-                $permExclui = $_POST['excluiPessoa'];
-
-                $result = mysqli_query($mysqli , "INSERT INTO grupo(name,cadastra,edita,exclui) VALUES('$nomeGrupo','$permCadastra','$permEdita','$permExlui')");
-        
         }
     }
 ?>
